@@ -4,7 +4,7 @@ import 'package:advanced_flutter_tutorial/presentation/resources/strings_manager
 import 'package:advanced_flutter_tutorial/presentation/routes/forgetpassword/forget_password_view.dart';
 import 'package:advanced_flutter_tutorial/presentation/routes/login/login_view.dart';
 import 'package:advanced_flutter_tutorial/presentation/routes/main/main_view.dart';
-import 'package:advanced_flutter_tutorial/presentation/routes/onboarding/onboarding_view.dart';
+import 'package:advanced_flutter_tutorial/presentation/routes/onboarding/view/onboarding_view.dart';
 import 'package:advanced_flutter_tutorial/presentation/routes/register/register_view.dart';
 import 'package:advanced_flutter_tutorial/presentation/routes/splash/splash_view.dart';
 import 'package:advanced_flutter_tutorial/presentation/routes/store_details/store_details_view.dart';
