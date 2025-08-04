@@ -1,5 +1,5 @@
-import 'package:advanced_flutter_tutorial/presentation/resources/color_manager.dart';
-import 'package:advanced_flutter_tutorial/presentation/resources/values_manager.dart';
+import 'package:advanced_flutter_tutorial/domain/presentation/resources/color_manager.dart';
+import 'package:advanced_flutter_tutorial/domain/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 
 import 'font_manager.dart';

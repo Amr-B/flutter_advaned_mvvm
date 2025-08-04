@@ -1,13 +1,13 @@
 // ignore_for_file: prefer_final_fields, must_be_immutable
 
 import 'package:advanced_flutter_tutorial/domain/models.dart';
-import 'package:advanced_flutter_tutorial/presentation/resources/assets_manager.dart';
-import 'package:advanced_flutter_tutorial/presentation/resources/color_manager.dart';
-import 'package:advanced_flutter_tutorial/presentation/resources/constant_manager.dart';
-import 'package:advanced_flutter_tutorial/presentation/resources/strings_manager.dart';
-import 'package:advanced_flutter_tutorial/presentation/resources/values_manager.dart';
-import 'package:advanced_flutter_tutorial/presentation/routes/onboarding/viewmodel/onboarding_viewmodel.dart';
-import 'package:advanced_flutter_tutorial/presentation/routes/route_manager.dart';
+import 'package:advanced_flutter_tutorial/domain/presentation/resources/assets_manager.dart';
+import 'package:advanced_flutter_tutorial/domain/presentation/resources/color_manager.dart';
+import 'package:advanced_flutter_tutorial/domain/presentation/resources/constant_manager.dart';
+import 'package:advanced_flutter_tutorial/domain/presentation/resources/strings_manager.dart';
+import 'package:advanced_flutter_tutorial/domain/presentation/resources/values_manager.dart';
+import 'package:advanced_flutter_tutorial/domain/presentation/routes/onboarding/viewmodel/onboarding_viewmodel.dart';
+import 'package:advanced_flutter_tutorial/domain/presentation/routes/route_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
