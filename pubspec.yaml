@@ -15,6 +15,12 @@ dependencies:
 
   cupertino_icons: ^1.0.8
   flutter_svg: ^2.2.0
+  retrofit: ^4.6.0
+  analyzer: ^7.7.1
+  dio: ^5.8.0+1
+  json_serializable: ^6.9.5
+  retrofit_generator: ^9.6.0
+  build_runner: ^2.4.15
 
 dev_dependencies:
   flutter_test:
