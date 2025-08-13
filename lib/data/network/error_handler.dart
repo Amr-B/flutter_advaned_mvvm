@@ -1,6 +1,65 @@
 // ignore_for_file: constant_identifier_names
 
+import 'package:dio/dio.dart';
+
 import 'failure.dart';
+
+class ErrorHandler implements Exception {
+  late Failure failure;
+
+  ErrorHandler.handle(dynamic error) {
+    if (error is DioException) {
+      // dio error
+      failure = _handleError(error);
+    } else {
+      // > unkown error
+      failure = DataSource.DEFAULT.getFailure();
+    }
+  }
+}
+
+Failure _handleError(DioException error) {
+  switch (error.type) {
+    // connectionTimeout
+    case DioExceptionType.connectionTimeout:
+      return DataSource.CONNECT_TIMEOUT.getFailure();
+
+    // sendTimeout
+    case DioExceptionType.sendTimeout:
+      return DataSource.SEND_TIMEOUT.getFailure();
+
+    // receiveTimeout
+    case DioExceptionType.receiveTimeout:
+      return DataSource.RECIEVE_TIMEOUT.getFailure();
+
+    // badCertificate
+    case DioExceptionType.badCertificate:
+      throw UnimplementedError();
+
+    // badResponse
+    case DioExceptionType.badResponse:
+      if (error.response != null &&
+          error.response?.statusCode != null &&
+          error.response?.statusMessage != null) {
+        return Failure(error.response?.statusCode ?? 0,
+            error.response?.statusMessage ?? "");
+      } else {
+        return DataSource.DEFAULT.getFailure();
+      }
+
+    // cancel
+    case DioExceptionType.cancel:
+      return DataSource.CANCEL.getFailure();
+
+    // connectionError
+    case DioExceptionType.connectionError:
+      return DataSource.NO_INTERNET_CONNECTION.getFailure();
+
+    // unknown
+    case DioExceptionType.unknown:
+      return DataSource.DEFAULT.getFailure();
+  }
+}
 
 enum DataSource {
   SUCCESS,
@@ -16,6 +75,7 @@ enum DataSource {
   CACHE_ERROR,
   SEND_TIMEOUT,
   NO_INTERNET_CONNECTION,
+  DEFAULT,
 }
 
 // > cases
@@ -77,6 +137,9 @@ extension DataSourceExtension on DataSource {
       case DataSource.NO_INTERNET_CONNECTION:
         return Failure(ResponseCode.NO_INTERNET_CONNECTION,
             ResponseMessage.NO_INTERNET_CONNECTION);
+
+      case DataSource.DEFAULT:
+        return Failure(ResponseCode.DEFAULT, ResponseMessage.DEFAULT);
     }
   }
 }
@@ -97,7 +160,7 @@ class ResponseCode {
   static const int CACHE_ERROR = -4;
   static const int SEND_TIMEOUT = -5;
   static const int NO_INTERNET_CONNECTION = -6;
-  static const int UNKNOWN = -7;
+  static const int DEFAULT = -7;
 }
 
 // > response messages
@@ -119,5 +182,5 @@ class ResponseMessage {
   static const String SEND_TIMEOUT = "send time out, try again later";
   static const String NO_INTERNET_CONNECTION =
       "no internet connection, check your internet connection and try again";
-  static const String UNKNOWN = "unknown";
+  static const String DEFAULT = "default error";
 }
