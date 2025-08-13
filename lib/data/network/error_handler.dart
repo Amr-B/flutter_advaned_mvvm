@@ -34,3 +34,25 @@ class ResponseCode {
   static const int NO_INTERNET_CONNECTION = -6;
   static const int UNKNOWN = -7;
 }
+
+// > response messages
+class ResponseMessage {
+  static const String SUCCESS = "Success";
+  static const String NO_CONTNET = "Success";
+  static const String BAD_REQUEST = "Bad Request, try again later";
+  static const String UNAUTHORISED = "user is unauthorised";
+  static const String FORBIDDEN = "Forbidden request, try again later";
+  static const String NOT_FOUND = "not found";
+  static const String INTERNAL_SERVER_ERROR =
+      "internal server error, try again later";
+
+  // > local response messages < //
+  static const String CONNECT_TIMEOUT = "connection time out, try again later";
+  static const String CANCEL = "canelled";
+  static const String RECIEVE_TIMEOUT = "recieve time out, try again later";
+  static const String CACHE_ERROR = "cache error, try again later";
+  static const String SEND_TIMEOUT = "send time out, try again later";
+  static const String NO_INTERNET_CONNECTION =
+      "no internet connection, check your internet connection and try again";
+  static const String UNKNOWN = "unknown";
+}
