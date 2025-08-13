@@ -15,8 +15,6 @@ class DioFactory {
   Future<Dio> getDio() async {
     Dio dio = Dio();
 
-    Duration _timeOut = const Duration(milliseconds: 60 * 1000);
-
     Map<String, String> headers = {
       CONTENT_TYPE: APPLICATION_JSON,
       ACCEPT: ACCEPT,
@@ -25,10 +23,11 @@ class DioFactory {
     };
 
     dio.options = BaseOptions(
-        baseUrl: AppConstants.baseUrl,
-        headers: headers,
-        receiveTimeout: _timeOut,
-        sendTimeout: _timeOut);
+      baseUrl: AppConstants.baseUrl,
+      headers: headers,
+      receiveTimeout: const Duration(milliseconds: AppConstants.apiTimeOut),
+      sendTimeout: const Duration(milliseconds: AppConstants.apiTimeOut),
+    );
 
     if (!kReleaseMode) {
       dio.interceptors.add(PrettyDioLogger(
