@@ -1,0 +1,16 @@
+// ignore_for_file: constant_identifier_names
+
+enum DataSource {
+  SUCCESS,
+  NO_CONTNET,
+  BAD_REQUEST,
+  FORBIDDEN,
+  UNAUTHORISED,
+  NOT_FOUND,
+  INTERNAL_SERVER_ERROR,
+  CONNECT_TIMEOUT,
+  CANCEL,
+  RECIEVE_TIMEOUT,
+  SEND_TIMEOUT,
+  NO_INTERNET_CONNECTION,
+}
