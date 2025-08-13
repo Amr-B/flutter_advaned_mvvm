@@ -2,6 +2,7 @@
 
 import 'package:advanced_flutter_tutorial/data/data_source/remote_data_source.dart';
 import 'package:advanced_flutter_tutorial/data/mapper/mapper.dart';
+import 'package:advanced_flutter_tutorial/data/network/error_handler.dart';
 import 'package:advanced_flutter_tutorial/data/network/failure.dart';
 import 'package:advanced_flutter_tutorial/data/network/network_info.dart';
 import 'package:advanced_flutter_tutorial/data/network/requests.dart';
@@ -18,16 +19,21 @@ class RepositoryImpl implements Repository {
   @override
   Future<Either<Failure, AuthObject>> login(LoginRequest loginRequest) async {
     if (await _networkInfo.isConnected) {
-      final response = await _remoteDataSource.login(loginRequest);
+      try {
+        final response = await _remoteDataSource.login(loginRequest);
 
-      if (response.status == 0) {
-        return Right(response.toDomain());
-      } else {
-        // failure
-        return Left(Failure(409, response.message ?? "API ERROR"));
+        if (response.status == ApiInternalStatus.SUCCESS) {
+          return Right(response.toDomain());
+        } else {
+          // failure
+          return Left(Failure(ApiInternalStatus.FAILURE,
+              response.message ?? ResponseMessage.DEFAULT));
+        }
+      } catch (error) {
+        return Left(ErrorHandler.handle(error).failure);
       }
     } else {
-      return Left(Failure(501, "check connection"));
+      return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
     }
   }
 }
