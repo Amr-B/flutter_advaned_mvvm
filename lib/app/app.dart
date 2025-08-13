@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print, must_be_immutable
 
-import 'package:advanced_flutter_tutorial/domain/presentation/resources/theme_manager.dart';
-import 'package:advanced_flutter_tutorial/domain/presentation/routes/route_manager.dart';
+import 'package:advanced_flutter_tutorial/presentation/resources/theme_manager.dart';
+import 'package:advanced_flutter_tutorial/presentation/routes/route_manager.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatefulWidget {

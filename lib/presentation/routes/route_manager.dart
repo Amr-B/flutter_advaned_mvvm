@@ -1,13 +1,13 @@
 // ignore_for_file: unreachable_switch_case
 
-import 'package:advanced_flutter_tutorial/domain/presentation/resources/strings_manager.dart';
-import 'package:advanced_flutter_tutorial/domain/presentation/routes/forgetpassword/forget_password_view.dart';
-import 'package:advanced_flutter_tutorial/domain/presentation/routes/login/login_view.dart';
-import 'package:advanced_flutter_tutorial/domain/presentation/routes/main/main_view.dart';
-import 'package:advanced_flutter_tutorial/domain/presentation/routes/onboarding/view/onboarding_view.dart';
-import 'package:advanced_flutter_tutorial/domain/presentation/routes/register/register_view.dart';
-import 'package:advanced_flutter_tutorial/domain/presentation/routes/splash/splash_view.dart';
-import 'package:advanced_flutter_tutorial/domain/presentation/routes/store_details/store_details_view.dart';
+import 'package:advanced_flutter_tutorial/presentation/resources/strings_manager.dart';
+import 'package:advanced_flutter_tutorial/presentation/routes/forgetpassword/forget_password_view.dart';
+import 'package:advanced_flutter_tutorial/presentation/routes/login/login_view.dart';
+import 'package:advanced_flutter_tutorial/presentation/routes/main/main_view.dart';
+import 'package:advanced_flutter_tutorial/presentation/routes/onboarding/view/onboarding_view.dart';
+import 'package:advanced_flutter_tutorial/presentation/routes/register/register_view.dart';
+import 'package:advanced_flutter_tutorial/presentation/routes/splash/splash_view.dart';
+import 'package:advanced_flutter_tutorial/presentation/routes/store_details/store_details_view.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
