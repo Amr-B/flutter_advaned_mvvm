@@ -1,18 +1,31 @@
+// ignore_for_file: prefer_final_fields, unused_field
+
+import 'dart:async';
+
 import 'package:advanced_flutter_tutorial/presentation/base/base_view_model.dart';
 
 class LoginViewModel extends BaseViewModel
     with LoginViewModelInputs, LoginViewmodelOutputs {
+  StreamController _userNameStreamController =
+      StreamController<String>.broadcast();
+
+  StreamController _passwordStreamController =
+      StreamController<String>.broadcast();
+
   @override
-  void dispose() {}
+  void dispose() {
+    _userNameStreamController.close();
+    _passwordStreamController.close();
+  }
 
   @override
   void start() {}
 
   @override
-  Sink get inputPassword => throw UnimplementedError();
+  Sink get inputPassword => _passwordStreamController.sink;
 
   @override
-  Sink get inputUsername => throw UnimplementedError();
+  Sink get inputUsername => _userNameStreamController.sink;
 
   @override
   login() {
@@ -21,10 +34,20 @@ class LoginViewModel extends BaseViewModel
 
   // > outputs
   @override
-  Stream<bool> get outIsPasswordValid => throw UnimplementedError();
+  Stream<bool> get outIsPasswordValid => _passwordStreamController.stream
+      .map((password) => _isPasswordValid(password));
 
   @override
-  Stream<bool> get outIsUserNameValid => throw UnimplementedError();
+  Stream<bool> get outIsUserNameValid => _userNameStreamController.stream
+      .map((userName) => _isUserNameValid(userName));
+
+  bool _isPasswordValid(String password) {
+    return password.isNotEmpty;
+  }
+
+  bool _isUserNameValid(String userName) {
+    return userName.isNotEmpty;
+  }
 
   @override
   setPassword(String password) {
