@@ -33,7 +33,8 @@ class Contacts {
 }
 
 class AuthObject {
-  Contacts? customers;
+  Customer? customer;
   Contacts? contacts;
-  AuthObject(this.customers, this.contacts);
+
+  AuthObject(this.customer, this.contacts);
 }

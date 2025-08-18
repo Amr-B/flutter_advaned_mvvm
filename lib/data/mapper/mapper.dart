@@ -30,8 +30,8 @@ extension ContactsResponseMapper on ContactsResponse? {
 extension AuthResponseMapper on AuthResponse? {
   AuthObject toDomain() {
     return AuthObject(
-      this?.customer.toDomain(),
-      this?.contacts.toDomain(),
+      this?.customer.toDomain() as Customer?, // Customer?
+      this?.contacts.toDomain(), // Contacts?
     );
   }
 }
