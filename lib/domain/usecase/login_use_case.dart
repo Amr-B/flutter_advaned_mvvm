@@ -1,4 +1,4 @@
-// ignore_for_file: override_on_non_overriding_member
+// ignore_for_file: override_on_non_overriding_member, annotate_overrides
 
 import 'package:advanced_flutter_tutorial/data/network/failure.dart';
 import 'package:advanced_flutter_tutorial/data/network/requests.dart';

@@ -24,7 +24,7 @@ class DioFactory {
       CONTENT_TYPE: APPLICATION_JSON,
       ACCEPT: ACCEPT,
       AUTHORIZATION: "put token here",
-      DEFAULT_LANGUAGE: "en", // > TODO get language from app prefs
+      DEFAULT_LANGUAGE: "en",
     };
 
     dio.options = BaseOptions(
