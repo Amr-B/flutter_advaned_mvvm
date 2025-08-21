@@ -3,7 +3,6 @@
 import 'dart:async';
 import 'package:advanced_flutter_tutorial/presentation/base/base_view_model.dart';
 
-import '../../../../domain/usecase/login_use_case.dart';
 import '../../../common/freezed_data_classes.dart';
 
 class LoginViewModel extends BaseViewModel
@@ -21,7 +20,7 @@ class LoginViewModel extends BaseViewModel
 
   // final LoginUseCase _loginUseCase;
   // LoginViewModel(this._loginUseCase);
-  LoginViewModel();
+  LoginViewModel(Object object);
 
   @override
   void dispose() {

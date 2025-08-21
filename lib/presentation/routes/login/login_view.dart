@@ -7,6 +7,7 @@ import 'package:advanced_flutter_tutorial/presentation/resources/strings_manager
 import 'package:advanced_flutter_tutorial/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 
+import '../../../app/di.dart';
 import '../route_manager.dart';
 
 class LoginView extends StatefulWidget {
@@ -17,10 +18,10 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  LoginViewModel _viewModel = LoginViewModel();
+  final LoginViewModel _viewModel = instance<LoginViewModel>();
 
-  TextEditingController _userNameController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _userNameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
 

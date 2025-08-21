@@ -1,5 +1,6 @@
 // ignore_for_file: unreachable_switch_case
 
+import 'package:advanced_flutter_tutorial/app/di.dart';
 import 'package:advanced_flutter_tutorial/presentation/resources/strings_manager.dart';
 import 'package:advanced_flutter_tutorial/presentation/routes/forgetpassword/forget_password_view.dart';
 import 'package:advanced_flutter_tutorial/presentation/routes/login/login_view.dart';
@@ -30,6 +31,7 @@ class RouteGenerator {
 
       // > login
       case Routes.loginRoute:
+        initLoginModule();
         return MaterialPageRoute(
           builder: (_) => const LoginView(),
         );
