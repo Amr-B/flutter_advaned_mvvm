@@ -7,6 +7,8 @@ import 'package:advanced_flutter_tutorial/presentation/resources/strings_manager
 import 'package:advanced_flutter_tutorial/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 
+import '../route_manager.dart';
+
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
 
@@ -15,7 +17,7 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  LoginViewModel _viewModel = LoginViewModel(_loginUseCase);
+  LoginViewModel _viewModel = LoginViewModel();
 
   TextEditingController _userNameController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
@@ -28,7 +30,7 @@ class _LoginViewState extends State<LoginView> {
         .addListener(() => _viewModel.setUsername(_userNameController.text));
 
     _passwordController
-        .addListener(() => _viewModel.setUsername(_passwordController.text));
+        .addListener(() => _viewModel.setPassword(_passwordController.text));
   }
 
   @override
@@ -45,13 +47,15 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return _getContentWidget();
   }
 
   Widget _getContentWidget() {
     return Scaffold(
+      backgroundColor: ColorManager.white,
       body: Container(
-        padding: const EdgeInsets.all(AppPadding.p100),
+        alignment: Alignment.center,
+        padding: const EdgeInsets.symmetric(horizontal: AppPadding.p8),
         color: ColorManager.white,
         child: SingleChildScrollView(
           child: Form(
@@ -67,8 +71,8 @@ class _LoginViewState extends State<LoginView> {
                   height: AppSize.s28,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                      left: AppPadding.p28, right: AppPadding.p28),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: AppPadding.p20),
                   child: StreamBuilder<bool>(
                     stream: _viewModel.outIsUserNameValid,
                     builder: (context, snapshot) {
@@ -92,8 +96,8 @@ class _LoginViewState extends State<LoginView> {
                   height: AppSize.s28,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                      left: AppPadding.p28, right: AppPadding.p28),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: AppPadding.p20),
                   child: StreamBuilder<bool>(
                     stream: _viewModel.outIsPasswordValid,
                     builder: (context, snapshot) {
@@ -117,20 +121,58 @@ class _LoginViewState extends State<LoginView> {
                   height: AppSize.s28,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                      left: AppPadding.p28, right: AppPadding.p28),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: AppPadding.p20),
                   child: StreamBuilder<bool>(
                     stream: _viewModel.outAreAllInputsValid,
                     builder: (context, snapshot) {
-                      return ElevatedButton(
-                        onPressed: (snapshot.data ?? false)
-                            ? () {
-                                _viewModel.login();
-                              }
-                            : null,
-                        child: const Text(AppStrings.login),
+                      return SizedBox(
+                        width: double.infinity,
+                        height: AppSize.s40,
+                        child: ElevatedButton(
+                          onPressed: (snapshot.data ?? false)
+                              ? () {
+                                  _viewModel.login();
+                                }
+                              : null,
+                          child: Text(
+                            AppStrings.login,
+                            style: TextStyle(color: ColorManager.white),
+                          ),
+                        ),
                       );
                     },
+                  ),
+                ),
+
+                // >> forget password & sign up << //
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: AppPadding.p20, vertical: AppPadding.p20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(
+                              context, Routes.forgotPasswordRoute);
+                        },
+                        child: Text(
+                          AppStrings.forgetPw,
+                          style: TextStyle(color: ColorManager.primary),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(
+                              context, Routes.registerRoute);
+                        },
+                        child: Text(
+                          AppStrings.notAMemeber,
+                          style: TextStyle(color: ColorManager.primary),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],

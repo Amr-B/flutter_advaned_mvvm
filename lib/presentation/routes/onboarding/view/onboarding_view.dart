@@ -6,7 +6,7 @@ import 'package:advanced_flutter_tutorial/presentation/resources/color_manager.d
 import 'package:advanced_flutter_tutorial/presentation/resources/constant_manager.dart';
 import 'package:advanced_flutter_tutorial/presentation/resources/strings_manager.dart';
 import 'package:advanced_flutter_tutorial/presentation/resources/values_manager.dart';
-import 'package:advanced_flutter_tutorial/presentation/routes/onboarding/viewmodel/onboarding_viewmodel.dart';
+import 'package:advanced_flutter_tutorial/presentation/routes/onboarding/view/viewmodel/onboarding_viewmodel.dart';
 import 'package:advanced_flutter_tutorial/presentation/routes/route_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
