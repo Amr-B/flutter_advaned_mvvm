@@ -27,6 +27,13 @@ dependencies:
   shared_preferences: ^2.5.3
   freezed: ^3.0.6
   get_it: ^8.2.0
+  lottie: ^3.3.1
+  easy_localization: ^3.0.8
+  rxdart: ^0.28.0
+  image_picker: ^0.8.4+11
+  flutter_phoenix: ^1.0.0
+  country_code_picker: ^3.4.0
+  carousel_slider: ^5.1.1
 
 dev_dependencies:
   flutter_test:
@@ -42,14 +49,27 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/splash_logo.png
-    - assets/images/onboarding_logo1.svg
-    - assets/images/onboarding_logo2.svg
-    - assets/images/onboarding_logo4.svg
-    - assets/images/onboarding_logo3.svg
-    - assets/images/solid_circle_ic.svg
-    - assets/images/left_arrow_ic.svg
-    - assets/images/right_arrow_ic.svg
+     - assets/images/splash_logo.png
+     - assets/images/onboarding_logo1.svg
+     - assets/images/onboarding_logo2.svg
+     - assets/images/onboarding_logo3.svg
+     - assets/images/onboarding_logo4.svg
+     - assets/images/hollow_circle_ic.svg
+     - assets/images/solid_circle_ic.svg
+     - assets/images/left_arrow_ic.svg
+     - assets/images/right_arrow_ic.svg
+     - assets/images/photo-camera.svg
+     - assets/images/change_lang_ic.svg
+     - assets/images/contact_us_ic.svg
+     - assets/images/invite_friends_ic.svg
+     - assets/images/logout_ic.svg
+     - assets/images/right_arrow_settings_ic.svg
+     - assets/json/loading.json
+     - assets/json/error.json
+     - assets/json/empty.json
+     - assets/json/success.json
+     - assets/translations/ar-SA.json
+     - assets/translations/en-US.json
 
 
 
